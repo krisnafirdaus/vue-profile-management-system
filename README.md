@@ -1,6 +1,10 @@
-# myApp - Modern Profile Management System
+# Vue Profile Management System
 
-A beautiful, responsive web application built with Nuxt.js, Vue.js, and Vuetify for comprehensive profile management. This application demonstrates modern web development best practices with excellent user experience, accessibility, and performance.
+A modern, responsive profile management application built with Nuxt 3, Vue 3, and Vuetify. This application features a beautiful glassmorphism design with comprehensive user profile management capabilities.
+
+🌐 **Live Demo**: [https://vue-profile-management-system.vercel.app](https://vue-profile-management-system.vercel.app)
+
+📁 **GitHub Repository**: [https://github.com/krisnafirdaus/vue-profile-management-system](https://github.com/krisnafirdaus/vue-profile-management-system)
 
 ## 🚀 Features
 
@@ -12,42 +16,43 @@ A beautiful, responsive web application built with Nuxt.js, Vue.js, and Vuetify 
 
 ### ✅ Profile Management
 - **Multi-tab Profile System** with organized sections:
-  - Basic Details (Salutation, Name, Email)
-  - Additional Details (Address, DOB, Gender, Marital Status)
+  - Basic Details (Salutation, Name, Email, Profile Photo)
+  - Additional Details (Address, Country, Postal Code, DOB, Gender, Marital Status)
   - Spouse Details (Conditional - shown only when married)
   - Personal Preferences (Hobbies, Sports, Music, Movies)
-- **Profile Image Upload** with preview
-- **Real-time Form Validation** using Yup schema
+- **Profile Image Upload** with preview functionality
+- **Real-time Form Validation** using Yup schema validation
 - **Age Validation** (minimum 17 years old)
 - **Conditional Fields** (spouse details appear when married)
+- **Editable Profile** with Update/Cancel buttons on all tabs
 
-### ✅ Dashboard & Analytics
-- **Welcome Dashboard** with personalized greetings
-- **Profile Completion Tracker** with visual progress
-- **Activity Timeline** showing recent actions
-- **Quick Action Cards** for easy navigation
-- **Statistics Overview** with engaging visuals
+### ✅ Navigation & UX
+- **Responsive Header Navigation** for desktop users
+- **Hamburger Sidebar Menu** for mobile devices
+- **Reusable Navigation Component** across all pages
+- **Smooth Transitions** and animations
+- **Touch-friendly Interface** for mobile devices
 
 ### ✅ Technical Excellence
-- **Modern Tech Stack**: Nuxt.js 3, Vue.js 3, Vuetify 3, TypeScript
-- **Form Library**: VeeValidate with Yup validation schemas
-- **API Integration**: RESTful API with proper error handling
-- **State Management**: Composables for auth, API, and validation
-- **Responsive Design**: Mobile-first approach with breakpoint optimization
+- **Modern Tech Stack**: Nuxt 3, Vue 3, Vuetify 3, TypeScript
+- **Form Validation**: Yup validation schemas with real-time feedback
+- **API Integration**: Mock API with proper error handling
+- **State Management**: Vue composables for auth, API, and validation
+- **Responsive Design**: Mobile-first approach with glassmorphism effects
 - **Accessibility**: ARIA labels, keyboard navigation, screen reader support
-- **SEO Optimized**: Meta tags, structured data, semantic HTML
-- **Performance**: Lazy loading, code splitting, optimized assets
+- **SEO Optimized**: Meta tags for all pages
+- **Performance**: Optimized build with Vite
 
 ## 🛠 Tech Stack
 
-- **Frontend Framework**: Nuxt.js 3 (Vue.js 3)
+- **Frontend Framework**: Nuxt 3 (Vue 3)
 - **UI Framework**: Vuetify 3 with Material Design
-- **Form Management**: VeeValidate + Yup validation
+- **Form Validation**: Yup validation schemas
 - **Language**: TypeScript
-- **Icons**: Material Design Icons
-- **Authentication**: Cookie-based with composables
-- **API**: Nuxt Server API routes
-- **Styling**: Sass/SCSS with custom variables
+- **Icons**: Material Design Icons (MDI)
+- **Authentication**: Cookie-based session management
+- **API**: Mock API with Nuxt server routes
+- **Styling**: SCSS with glassmorphism effects
 - **Build Tool**: Vite
 - **Package Manager**: npm
 
@@ -61,18 +66,17 @@ The application is fully responsive and optimized for:
 
 ## 🎨 Design Features
 
-- **Modern Bokeh Background** with animated white transparent circles
-- **Frosted Glass Effects** with backdrop blur on form containers
-- **Professional Typography** with clean sans-serif fonts and proper hierarchy
-- **Consistent Color Scheme** with soft grays, whites, and black accents
-- **Responsive Logo Placeholder** with black border in top-left corner
-- **Smooth Animations** and floating bokeh circle effects
-- **Dark/Light theme** compatibility
+- **Glassmorphism UI** with frosted glass effects and backdrop blur
+- **Animated Bokeh Background** with floating white transparent circles
+- **Professional Typography** with Segoe UI font family
+- **Consistent Color Scheme** with gradient backgrounds and modern styling
+- **Responsive Logo Placeholder** with gradient background and border
+- **Smooth Animations** for bokeh circles and UI interactions
+- **Modern Form Design** with custom input styling and validation feedback
 - **Interactive Elements** with hover effects and focus states
-- **Loading states** and skeleton screens
-- **Toast notifications** for user feedback
-- **Modern Input Fields** with subtle borders and clean styling
-- **Accessibility-First Design** with proper contrast ratios and focus indicators
+- **Loading States** with progress indicators
+- **Success/Error Messages** with toast-style alerts
+- **Mobile-Optimized Interface** with touch-friendly buttons and navigation
 
 ## 🚀 Getting Started
 
@@ -84,8 +88,8 @@ The application is fully responsive and optimized for:
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
-cd my-app
+git clone https://github.com/krisnafirdaus/vue-profile-management-system.git
+cd vue-profile-management-system
 ```
 
 2. **Install dependencies**
@@ -102,10 +106,12 @@ npm run dev
 Navigate to `http://localhost:3000` (or the port shown in terminal)
 
 ### Demo Accounts
-For testing purposes, use these credentials:
-- **Username**: `test` | **Password**: `password`
-- **Username**: `john.doe` | **Password**: `password123`
-- **Username**: `demo` | **Password**: `demo123`
+For testing purposes, any email and password combination will work:
+- **Email**: `test@example.com` | **Password**: `password`
+- **Email**: `john.doe@email.com` | **Password**: `password123`
+- **Email**: `demo@test.com` | **Password**: `demo123`
+
+The application uses mock authentication for demonstration purposes.
 
 ## 📋 Available Scripts
 
@@ -124,18 +130,22 @@ npm run type-check   # Run TypeScript checks
 ## 🏗 Project Structure
 
 ```
-my-app/
+vue-profile-management-system/
 ├── components/          # Reusable Vue components
+│   └── NavigationMenu.vue # Reusable navigation component
 ├── composables/         # Vue composables for business logic
 │   ├── useAuth.ts      # Authentication management
 │   ├── useApi.ts       # API calls and data fetching
 │   └── useValidation.ts # Form validation schemas
 ├── layouts/            # Application layouts
-│   └── default.vue     # Main layout with navigation
+│   ├── default.vue     # Main layout
+│   └── empty.vue       # Empty layout for auth pages
 ├── middleware/         # Route middleware
-│   └── auth.global.ts  # Global authentication guard
+│   ├── auth.global.ts  # Global authentication guard
+│   └── redirect.global.ts # Redirect middleware
 ├── pages/              # Application pages/routes
-│   ├── index.vue       # Dashboard/Home page
+│   ├── index.vue       # Root redirect
+│   ├── home.vue        # Home/Dashboard page
 │   ├── login.vue       # Login page
 │   ├── register.vue    # Registration page
 │   ├── profile.vue     # Profile view page
@@ -143,8 +153,10 @@ my-app/
 ├── plugins/            # Nuxt plugins
 │   └── vuetify.ts      # Vuetify configuration
 ├── public/             # Static assets
+│   ├── favicon.ico     # App favicon
+│   ├── robots.txt      # SEO robots file
 │   └── images/         # Image assets
-├── server/             # Server-side API
+├── server/             # Server-side API (mock)
 │   └── api/            # API endpoints
 │       ├── login.ts    # Authentication endpoint
 │       ├── register.ts # Registration endpoint
@@ -156,12 +168,12 @@ my-app/
 
 ## 🔐 Security Features
 
-- **Input Validation**: Client and server-side validation
+- **Input Validation**: Client-side validation with Yup schemas
 - **XSS Protection**: Sanitized inputs and outputs
 - **CSRF Protection**: Built-in Nuxt security features
-- **Secure Cookies**: HttpOnly and Secure flags for production
-- **Password Requirements**: Minimum length and complexity rules
-- **Rate Limiting**: Implemented on API endpoints
+- **Secure Cookies**: Proper cookie management for sessions
+- **Password Requirements**: Form validation for secure passwords
+- **Authentication Guards**: Route protection middleware
 
 ## ♿ Accessibility Features
 
@@ -174,43 +186,41 @@ my-app/
 
 ## 🌐 Deployment
 
-### Vercel (Recommended)
-1. Push your code to GitHub
+This application is deployed on **Vercel** and can be accessed at:
+**🔗 [https://vue-profile-management-system.vercel.app](https://vue-profile-management-system.vercel.app)**
+
+### Deploy Your Own
+
+#### Vercel (Recommended)
+1. Fork this repository
 2. Connect your repository to Vercel
 3. Deploy with automatic builds
 
-### Netlify
+#### Netlify
 1. Build the application: `npm run generate`
 2. Deploy the `dist` folder to Netlify
 
-### Traditional Hosting
+#### Traditional Hosting
 1. Build for production: `npm run build`
 2. Upload the `.output` folder to your server
 
-### Environment Variables
-For production deployment, set these environment variables:
-```bash
-NUXT_PUBLIC_API_BASE_URL=your-api-url
-NUXT_SECRET_KEY=your-secret-key
-```
+## 📊 Performance Features
 
-## 📊 Performance Optimizations
-
-- **Code Splitting**: Automatic route-based splitting
-- **Lazy Loading**: Images and components loaded on demand
+- **Optimized Build**: Vite-powered build system
+- **Component Lazy Loading**: On-demand component loading
+- **Responsive Images**: Optimized image loading
+- **Modern CSS**: Efficient styling with SCSS
 - **Tree Shaking**: Unused code elimination
-- **Asset Optimization**: Compressed images and minified CSS/JS
-- **CDN Ready**: Static assets optimized for CDN delivery
-- **Caching**: Appropriate cache headers for static assets
+- **Fast Navigation**: SPA routing with Nuxt
 
-## 🧪 Testing
+## 🧪 Features Tested
 
 The application includes comprehensive testing for:
-- **Form Validation**: All validation rules tested
-- **API Endpoints**: Backend functionality verification
-- **User Flows**: Complete user journey testing
-- **Responsive Design**: Cross-device compatibility
-- **Accessibility**: WCAG 2.1 compliance testing
+- **Form Validation**: All validation rules and error handling
+- **User Authentication**: Login/register flow with session management
+- **Profile Management**: CRUD operations for user profiles
+- **Responsive Design**: Cross-device compatibility testing
+- **Navigation**: Header and sidebar navigation functionality
 
 ## 🐛 Browser Support
 
@@ -223,11 +233,10 @@ The application includes comprehensive testing for:
 
 ## 📈 SEO Features
 
-- **Meta Tags**: Dynamic meta descriptions and titles
-- **Open Graph**: Social media sharing optimization
-- **Structured Data**: Schema.org markup for rich snippets
-- **Sitemap**: Automatic sitemap generation
-- **Robots.txt**: Search engine crawling instructions
+- **Meta Tags**: Dynamic page titles and descriptions
+- **Semantic HTML**: Proper HTML structure for SEO
+- **Responsive Design**: Mobile-friendly for search engines
+- **Clean URLs**: SEO-friendly routing with Nuxt
 
 ## 🤝 Contributing
 
@@ -241,17 +250,22 @@ The application includes comprehensive testing for:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👥 Authors
+## 👥 About
 
-- **Developer** - Initial work and implementation
+This project was created as a modern Vue.js profile management system demonstrating:
+- Modern web development practices
+- Responsive design principles  
+- User experience best practices
+- Clean code architecture
+- Professional UI/UX design
 
 ## 🙏 Acknowledgments
 
-- Vue.js and Nuxt.js teams for the excellent framework
-- Vuetify team for the beautiful UI components
-- Material Design for the design system
-- All open-source contributors who made this project possible
+- Vue.js and Nuxt teams for the excellent framework
+- Vuetify team for the beautiful Material Design components
+- Vercel for seamless deployment platform
+- Open-source community for inspiration and resources
 
 ---
 
-**Built with ❤️ using modern web technologies**
+**🚀 Built with modern web technologies for optimal performance and user experience**
